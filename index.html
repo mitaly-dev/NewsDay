@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsDay</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- daisy ui link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                bodyColor:'#141442',
+                textColor:'#ddd'
+              },
+              fontFamily:{
+                berkshire:['Berkshire Swash','cursive'],
+                roboto:['Roboto', 'sans-serif']
+              }
+              
+            }
+          }
+        }
+      </script>
+</head>
+<body class="bg-bodyColor font-roboto">
+    <!-- header section start -->
+    <header>
+        <div class="navbar bg-base-100 px-12 bg-bodyColor py-3 border-b w-11/12 m-auto">
+            <div class="flex-1">
+              <a class="text-xl font-bold font-berkshire"><span class="text-white bg-purple-800 border px-4 py-2 rounded-lg">News</span><span class="text-textColor"> Day</span></a>
+            </div>
+            <div class="flex-none gap-2">
+              <div class="">
+                <ul class="flex text-textColor">
+                    <li><a href="#" class="mr-4">News</a></li>
+                    <li><a href="#" class="mr-4">Blog</a></li>
+                </ul>
+              </div>
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full border-2">
+                    <img src="https://placeimg.com/80/80/people" />
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+    </header>
+    <!-- header section end -->
+    <main onclick="" class="px-28">
+        <section>
+            <div id="categorys" class="flex justify-between text-textColor py-7 ">
+               
+            </div>
+            <div class="p-4 bg-white rounded-md">
+                <h3 class="tracking-wide text-lg"><span id="item-found">0</span> items found for category <span id="found-category">Entertainment</span></h3>
+            </div>
+            <div class="py-8 flex justify-between">
+                <div class="flex items-center">
+                    <span class="mr-2 font-semibold text-textColor">Sort By View:</span>
+                    <select name="" id=""  class="px-6 py-2 rounded-md  outline-none">
+                        <option value="default">default</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="bg-violet-800 text-white mr-2 py-2 px-4 rounded-lg">Today’s Pick</button>
+                    <button class="text-textColor mr-2 py-2 px-4 rounded-lg border">Trending</button>
+                </div>
+            </div>
+        </section>
+        <section id="newscard" class="py-10">
+            <div id="all-News-card">
+                <!-- <div class="card card-side bg-base-100 shadow-xl pl-5">
+                    <figure class="w-2/12"><img src="https://placeimg.com/200/280/arch" alt="Movie" class="rounded-lg"></figure>
+                    <div class="card-body w-10/12">
+                      <h2 class="text-2xl font-semibold">The best fashion influencers to follow for sartorial inspiration</h2>
+                      <p>
+                        From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read on some of the best fashion blogs out there, and for even more inspiration, do head to our separate black fashion influencer round-up.
+                        <br><br>
+                        Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday, Missoma Black Friday and Gucci Black Friday...
+                      </p>
+                      <div class="flex justify-between items-center pt-10">
+                        <div class="flex items-center">
+                            <img src="https://placeimg.com/80/80/people" class="rounded-full" width="30%" />
+                            <div class="pl-4">
+                                <p class="font-semibold capitalize">author name</p>
+                                <p class="text-slate-500">22/3/23</p>
+                            </div>
+                        </div>
+                        <div  class="font-semibold text-lg">
+                            <i class="fa-regular fa-eye"></i>
+                            <span><span id="views">1.5</span> views</span>
+                        </div>
+                        <div class="text-lg">
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <button class=""><i class="fa-solid fa-arrow-right text-xl"></i></button>
+                      </div>
+                    </div>
+                  </div> -->
+            </div>
+        </section>
+    </main>
+    
+    <script src="./js/category.js"></script>
+</body>
+</html>
