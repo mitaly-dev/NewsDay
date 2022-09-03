@@ -8,7 +8,7 @@ const displayCategory=async()=>{
         let {category_id,category_name}=category
         let Categorydiv=document.createElement('div')
         Categorydiv.innerHTML=`
-        <button onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
+        <button class="hover:text-red-500" onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
         `
         categoryContainer.appendChild(Categorydiv)
     })
