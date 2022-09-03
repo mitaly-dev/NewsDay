@@ -35,25 +35,25 @@ const newsCard=async(id,name)=>{
     data.forEach(card=>{
         let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
         let div=document.createElement('div')
-        div.classList.add('card', 'card-side', 'bg-base-100','shadow-xl', 'pl-5' ,'mb-5')
+        div.classList.add('card','card' ,'lg:card-side', 'bg-base-100','shadow-xl', 'md:pl-5' ,'mb-5')
         div.innerHTML=`
-                 <figure class="w-2/12"><img src="${thumbnail_url?thumbnail_url:`https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=`}" alt="Movie" class="rounded-lg"></figure>
-                    <div class="card-body w-10/12">
+                 <figure class="w-full lg:w-2/12 lg:ml-7"><img src="${thumbnail_url?thumbnail_url:`https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=`}" alt="Movie" class="rounded-lg"></figure>
+                    <div class="card-body w-full lg:w-10/12 p-4 lg:pl-20 xl:p-14">
                       <h2 class="text-2xl font-semibold">${title?title:'Not Available'}</h2>
-                      <p>${details?details.slice(0,400)+' ...':'Not available'}</p>
-                      <div class="flex justify-between items-center pt-10">
-                        <div class="flex items-center">
+                      <p class="">${details?details.slice(0,400)+' ...':'Not available'}</p>
+                      <div class="md:flex justify-between items-center md:pt-5">
+                        <div class="flex items-center pt-5">
                             <div class="w-[70px] h-[70px] "><img src="${image_url?image_url:`https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=`}" class="rounded-full w-full h-full object-cover" /></div>
                             <div class="pl-4">
                                 <p class="font-semibold capitalize">${author.name?author.name:'Not Available'}</p>
                                 <p class="text-slate-500">${author.published_date?author.published_date.slice(0,10):'Not Available'}</p>
                             </div>
                         </div>
-                        <div  class="font-semibold text-lg">
+                        <div  class="font-semibold text-lg pt-5">
                             <i class="fa-regular fa-eye"></i>
                             <span>${total_view?total_view:'Not Available'} views</span>
                         </div>
-                        <div class="text-lg">
+                        <div class="text-lg pt-5">
                             <i class="fa-solid fa-star-half-stroke"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
@@ -61,7 +61,7 @@ const newsCard=async(id,name)=>{
                             <i class="fa-regular fa-star"></i>
                         </div>
 
-                        <label onclick="authorDetails(${_id})" for="my-modal-3" class="btn modal-button"><i class="fa-solid fa-arrow-right text-xl"></i></label>
+                        <label for="my-modal-3" onclick="authorDetails(${_id})" class="modal-button pt-5 float-right"><i class="fa-solid fa-arrow-right text-xl"></i></label>
                        
                         </div>
                     </div>
@@ -74,7 +74,3 @@ const newsCard=async(id,name)=>{
 newsCard(8,'All news')
 
 //author details
-const authorDetails=async(id)=>{
-    let res=await dataLoad(`https://openapi.programming-hero.com/api/news/${id}`)
-    console.log(id)
-}

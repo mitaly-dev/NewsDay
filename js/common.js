@@ -8,3 +8,8 @@ const dataLoad=async(url)=>{
         return alert(err)
     }
 }
+
+const authorDetails=async(id)=>{
+    let res=await dataLoad(`https://openapi.programming-hero.com/api/news/${id}`)
+    console.log(res)
+}
