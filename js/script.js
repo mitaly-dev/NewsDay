@@ -37,17 +37,14 @@ const newsCard=async(id,name)=>{
     let cardContainer=document.getElementById('all-News-card')
     cardContainer.textContent=''
     
-    let sorting=data.map(card=>card.total_view)
-    sorting.sort(function(a, b){return b - a});
-    // console.log(sorting)
-    let MaxView= data.filter(news=>{
-        console.log(news.total_view)
-    })
-
-
-
-    
+    // let sorting=data.map(card=>card.total_view)
+    // sorting.sort(function(a, b){return b - a});
+    // // console.log(sorting)
+    // let MaxView= data.filter(news=>{
+    //     console.log(news.total_view)
+    // })
     data.forEach(card=>{
+        console.log(data)
         let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
         let div=document.createElement('div')
         div.classList.add('card', 'card-side', 'bg-base-100','shadow-xl', 'pl-5' ,'mb-5')
@@ -75,7 +72,7 @@ const newsCard=async(id,name)=>{
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <button class=""><i class="fa-solid fa-arrow-right text-xl"></i></button>
+                        <label onclick="authorDetails(${_id})" for="my-modal-3" class="modal-button cursor-pointer"><i class="fa-solid fa-arrow-right text-xl"></i></label>
                       </div>
                     </div>
         `
