@@ -7,7 +7,7 @@ const displayCategory=async()=>{
         let {category_id,category_name}=category
         let Categorydiv=document.createElement('div')
         Categorydiv.innerHTML=`
-        <button class="hover:text-red-500 outline-none" onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
+        <button class="hover:text-red-500 outline-none border-b-transparent hover:border-b-red-700" onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
         `
         categoryContainer.appendChild(Categorydiv)
     })
@@ -32,14 +32,10 @@ const newsCard=async(id,name)=>{
     document.getElementById('not-found').innerText=''
   }
     let data=res.data
-    
-    
-    // let sorting=data.map(card=>card.total_view)
-    // sorting.sort(function(a, b){return b - a});
-    // // console.log(sorting)
-    // let MaxView= data.filter(news=>{
-    //     console.log(news.total_view)
-    // })
+    data.sort(function(a,b){
+      return b.total_view - a.total_view
+    })
+    console.log(data)
     data.forEach(card=>{
         let {author,image_url,details,total_view,_id,title,thumbnail_url,rating}=card
         let div=document.createElement('div')
@@ -70,7 +66,7 @@ const newsCard=async(id,name)=>{
                             <i class="fa-regular fa-star"></i>`:"Not Available"}
                         </div>
                        
-                        <label onclick="authorDetails('${_id}')" for="my-modal-3" class="modal-button pt-5 float-right cursor-pointer"><i class="fa-solid fa-arrow-right text-xl"></i></label>
+                        <label onclick="authorDetails('${_id}')" for="my-modal-3" class="modal-button pt-5 float-right cursor-pointer"><i class="fa-solid fa-arrow-right text-xl text-violet-600"></i></label>
                         </div>
                     </div>
         `
@@ -78,6 +74,5 @@ const newsCard=async(id,name)=>{
         showSpinner(false)
     })
    
-    // sorting.forEach(a=>console.log(a))
 }
 newsCard(8,'All news')

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+     <!-- google font -->
+     <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+     <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+     <!-- daisy ui link -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                bodyColor:'#141442',
+                textColor:'#ddd'
+              },
+              fontFamily:{
+                berkshire:['Berkshire Swash','cursive'],
+                roboto:['Roboto', 'sans-serif']
+              }
+              
+            }
+          }
+        }
+      </script>
+</head>
+<body class="bg-bodyColor font-roboto">
+    <!-- header section start -->
+<header>
+    <div class="navbar bg-base-100 px-2 md:px-12 bg-bodyColor py-3 border-b w-11/12 m-auto">
+        <div class="flex-1">
+          <a class="md:text-xl font-bold font-berkshire"><span class="text-white bg-purple-800 border px-4 py-2 rounded-lg">News</span><span class="text-textColor"> Day</span></a>
+        </div>
+        <div class="flex-none ">
+          <div>
+            <ul class="flex text-textColor text-sm">
+                <li><a href="./index.html" class="mr-4">News</a></li>
+                <li><a href="./blog.html" class="mr-4">Blog</a></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full border-2">
+                <img src="https://placeimg.com/80/80/people" />
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+</header>
+<!-- header section end -->
+<main onclick="" class="px-5 md:px-28">
+    <section class="py-16">
+        <h3 class="text-white text-center text-3xl py-8 font-semibold">Questions</h3>
+        <div class="text-textColor w-8/12 m-auto">
+            <div class="border p-5 rounded-lg">
+                <h3 class="font-semibold text-xl">what is the difference between var let and const?</h3>
+                <p><span>var : </span>It can be updated and re-declared into the scope.</p>
+                <p><span>let : </span>It can be updated but cannot be re-declared into the scope.</p>
+                <p><span>const : </span>It cannot be updated or re-declared into the scope.</p>
+            </div>
+            <div class="border p-5 rounded-lg">
+                <h3 class="font-semibold text-xl">what is the difference between arrow functions and regular functions?</h3>
+                <p> Arrow function or an arrow function expression is a more concise syntax of writing regular function expressions that allows us to write shorter and neater functions.</p>
+            </div>
+            <div class="border p-5 rounded-lg">
+                <h3 class="font-semibold text-xl">difference between map,forEach, filter,find method?</h3>
+                <p><span> </span> The first difference between map() and forEach() is the returning value. The forEach() method returns undefined and map() returns a new array with the transformed elements. </p>
+                <p><span> </span> The find() method is used to find all the descendant elements of the selected element. It finds the element in the DOM tree by traversing through the root to leaf. The filter() method is used to filters all the elements and returns the element that matches and the element that do not match are removed</p>
+            </div>
+            <div class="border p-5 rounded-lg">
+                <h3 class="font-semibold text-xl">why do we use template string in javascript</h3>
+                <p>Template literals provide an easy way to interpolate variables and expressions into strings. </p>
+            </div>
+
+        </div>
+    </section>
+    </main>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
