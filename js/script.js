@@ -60,9 +60,8 @@ const newsCard=async(id,name)=>{
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-
-                        <label for="my-modal-3" onclick="authorDetails(${_id})" class="modal-button pt-5 float-right"><i class="fa-solid fa-arrow-right text-xl"></i></label>
                        
+                        <label onclick="authorDetails('${_id}')" for="my-modal-3" class="modal-button pt-5 float-right cursor-pointer"><i class="fa-solid fa-arrow-right text-xl"></i></label>
                         </div>
                     </div>
         `
@@ -72,5 +71,3 @@ const newsCard=async(id,name)=>{
     // sorting.forEach(a=>console.log(a))
 }
 newsCard(8,'All news')
-
-//author details

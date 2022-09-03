@@ -11,5 +11,6 @@ const dataLoad=async(url)=>{
 
 const authorDetails=async(id)=>{
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/${id}`)
-    console.log(res)
+    let data=res.data
+    console.log(data)
 }
