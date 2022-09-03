@@ -1,18 +1,7 @@
-const dataLoad=async(url)=>{
-    try{
-        let res= await fetch(url)
-        let data=await res.json()
-        return data;
-    }
-    catch(err){
-        return alert(err)
-    }
-}
-
 
 //all category
-const displayCategory=async(url)=>{
-    let res=await dataLoad(url)
+const displayCategory=async()=>{
+    let res=await dataLoad(`https://openapi.programming-hero.com/api/news/categories`)
     let data=res.data.news_category
     let categoryContainer=document.getElementById('categorys')
     data.forEach(category=>{
@@ -24,7 +13,7 @@ const displayCategory=async(url)=>{
         categoryContainer.appendChild(Categorydiv)
     })
 }
-displayCategory(`https://openapi.programming-hero.com/api/news/categories`)
+displayCategory()
 
 
 //all news card
@@ -44,7 +33,6 @@ const newsCard=async(id,name)=>{
     //     console.log(news.total_view)
     // })
     data.forEach(card=>{
-        console.log(data)
         let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
         let div=document.createElement('div')
         div.classList.add('card', 'card-side', 'bg-base-100','shadow-xl', 'pl-5' ,'mb-5')
@@ -72,8 +60,10 @@ const newsCard=async(id,name)=>{
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <label onclick="authorDetails(${_id})" for="my-modal-3" class="modal-button cursor-pointer"><i class="fa-solid fa-arrow-right text-xl"></i></label>
-                      </div>
+
+                        <label onclick="authorDetails(${_id})" for="my-modal-3" class="btn modal-button"><i class="fa-solid fa-arrow-right text-xl"></i></label>
+                       
+                        </div>
                     </div>
         `
         cardContainer.appendChild(div)
@@ -82,3 +72,9 @@ const newsCard=async(id,name)=>{
     // sorting.forEach(a=>console.log(a))
 }
 newsCard(8,'All news')
+
+//author details
+const authorDetails=async(id)=>{
+    let res=await dataLoad(`https://openapi.programming-hero.com/api/news/${id}`)
+    console.log(id)
+}
