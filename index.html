@@ -13,7 +13,6 @@
     <!-- daisy ui link -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
           theme: {
@@ -43,28 +42,28 @@
             <div class="flex-none ">
               <div>
                 <ul class="flex text-textColor text-sm">
-                    <li><a href="./index.html" class="mr-4 hover:text-red-600 hover:border-b-2 pb-1 hover:border-red-600">News</a></li>
-                    <li><a href="./blog.html" class="mr-4 hover:text-red-600 hover:border-b-2 pb-1 hover:border-red-600">Blog</a></li>
+                    <li><a href="./index.html" class="mr-4 hover:text-red-500 hover:border-b-2 pb-1 hover:border-red-600">News</a></li>
+                    <li><a href="./blog.html" class="mr-4 hover:text-red-500 hover:border-b-2 pb-1 hover:border-red-600">Blog</a></li>
                 </ul>
               </div>
               <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                   <div class="w-10 rounded-full border-2">
-                    <img src="https://placeimg.com/80/80/people" />
+                    <img src="./images/logo_n.png" />
                   </div>
                 </label>
               </div>
             </div>
-          </div>
+        </div>
     </header>
     <!-- header section end -->
-    <main onclick="" class="px-5 md:px-28">
+    <main class="px-5 md:px-28">
+      <!-- category section -->
         <section>
             <div id="categorys" class="flex flex-wrap gap-3 text-center justify-between text-textColor py-7 ">
-               
             </div>
             <div class="p-2 md:p-4 bg-white rounded-md">
-                <h3 class="tracking-wide text-lg"><span id="item-found">0</span> items found for category <span id="found-category">Entertainment</span></h3>
+                <h3 class="tracking-wide md:text-lg"><span id="item-found">0</span> items found for category <span id="found-category">Entertainment</span></h3>
             </div>
             <div class="py-8 md:flex text-center md:justify-between">
                 <div class="flex items-center mb-4 md:mb-0 justify-center">
@@ -79,31 +78,39 @@
                 </div>
             </div>
         </section>
+        <!-- all news card -->
         <section id="newscard" class="py-10">
-          
           <h3 id="not-found" class="text-red-600 text-center text-3xl "></h3>
           <div id="spinner" class="text-center hidden">
             <div class="radial-progress text-white mb-20" style="--value:70;">70%</div>
-            <!-- <progress class="progress w-56 bg-violet-600 mb-20"></progress> -->
           </div>
-            <div id="all-News-card">
-             
-            </div>
+          <div id="all-News-card">
+          </div>
         </section>
     </main>
-    
-    <script src="./js/common.js"></script>
-    <script src="./js/script.js"></script>
+    <footer>
+      <footer class="footer items-center p-4 text-neutral-content px-28 text-center">
+        <div class="items-center grid-flow-col"> 
+          <p>Copyright © 2022 - All right reserved by Mitaly</p>
+        </div> 
+        <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-2xl m-auto md:mr-0">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a> 
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </footer>
+    </footer>
+
+  <script src="./js/common.js"></script>
+  <script src="./js/script.js"></script>
    
-
-
-<!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box relative">
-    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <div id="modal-body"></div>
+<!-- modaly body -->
+  <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box relative">
+      <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+      <div id="modal-body"></div>
+    </div>
   </div>
-</div>
 </body>
 </html>
