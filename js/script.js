@@ -31,16 +31,23 @@ displayCategory(`https://openapi.programming-hero.com/api/news/categories`)
 const newsCard=async(id,name)=>{
     document.getElementById('found-category').innerText=`${name}`
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/category/0${id}`)
+    document.getElementById('item-found').innerText=`${res.data.length}`
+  
     let data=res.data
     let cardContainer=document.getElementById('all-News-card')
     cardContainer.textContent=''
     
     let sorting=data.map(card=>card.total_view)
     sorting.sort(function(a, b){return b - a});
-    console.log(sorting)
+    // console.log(sorting)
+    let MaxView= data.filter(news=>{
+        console.log(news.total_view)
+    })
+
+
+
+    
     data.forEach(card=>{
-        console.log(card)
-        document.getElementById('item-found').innerText=`${data.length}`
         let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
         let div=document.createElement('div')
         div.classList.add('card', 'card-side', 'bg-base-100','shadow-xl', 'pl-5' ,'mb-5')
@@ -77,4 +84,4 @@ const newsCard=async(id,name)=>{
    
     // sorting.forEach(a=>console.log(a))
 }
-newsCard(4,'Sports')
+newsCard(8,'All news')
