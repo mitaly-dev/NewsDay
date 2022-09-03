@@ -17,25 +17,25 @@ displayCategory()
 
 //all news card
 const newsCard=async(id,name)=>{
-    document.getElementById('not-found').innerText=''
+  document.getElementById('not-found').classList.add('hidden')
     showSpinner(true)
     let cardContainer=document.getElementById('all-News-card')
     cardContainer.textContent=''
     document.getElementById('found-category').innerText=`${name}`
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/category/0${id}`)
     document.getElementById('item-found').innerText=`${res.data.length}`
-  if(res.data.length==0){
-    document.getElementById('not-found').innerText='Sorry,not found'
+    if(res.data.length==0){
+      document.getElementById('not-found').classList.remove('hidden')
     showSpinner(false)
-  }
-  else{
-    document.getElementById('not-found').innerText=''
-  }
+    }
+    else{
+    document.getElementById('not-found').classList.add('hidden')
+    }
+
     let data=res.data
     data.sort(function(a,b){
       return b.total_view - a.total_view
     })
-    console.log(data)
     data.forEach(card=>{
         let {author,image_url,details,total_view,_id,title,thumbnail_url,rating}=card
         let div=document.createElement('div')
@@ -68,7 +68,7 @@ const newsCard=async(id,name)=>{
                         <label onclick="newsDetails('${_id}')" for="my-modal-3" class="modal-button pt-5 float-right cursor-pointer"><i class="fa-solid fa-arrow-right text-xl text-violet-600"></i></label>
                         </div>
                     </div>
-        `
+                  `
         cardContainer.appendChild(div)
         showSpinner(false)
     })

@@ -5,7 +5,7 @@ const dataLoad=async(url)=>{
         return data;
     }
     catch(err){
-        return console.log(err)
+        console.log(err)
     }
 }
 
