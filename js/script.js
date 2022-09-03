@@ -1,4 +1,3 @@
-
 //all category
 const displayCategory=async()=>{
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/categories`)
@@ -8,7 +7,7 @@ const displayCategory=async()=>{
         let {category_id,category_name}=category
         let Categorydiv=document.createElement('div')
         Categorydiv.innerHTML=`
-        <button class="hover:text-red-500" onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
+        <button class="hover:text-red-500 outline-none" onclick="newsCard(${category_id},'${category_name}')">${category_name}</button>
         `
         categoryContainer.appendChild(Categorydiv)
     })
@@ -18,13 +17,22 @@ displayCategory()
 
 //all news card
 const newsCard=async(id,name)=>{
+    document.getElementById('not-found').innerText=''
+    showSpinner(true)
+    let cardContainer=document.getElementById('all-News-card')
+    cardContainer.textContent=''
     document.getElementById('found-category').innerText=`${name}`
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/category/0${id}`)
     document.getElementById('item-found').innerText=`${res.data.length}`
-  
+  if(res.data.length==0){
+    document.getElementById('not-found').innerText='Sorry,not found'
+    showSpinner(false)
+  }
+  else{
+    document.getElementById('not-found').innerText=''
+  }
     let data=res.data
-    let cardContainer=document.getElementById('all-News-card')
-    cardContainer.textContent=''
+    
     
     // let sorting=data.map(card=>card.total_view)
     // sorting.sort(function(a, b){return b - a});
@@ -33,7 +41,7 @@ const newsCard=async(id,name)=>{
     //     console.log(news.total_view)
     // })
     data.forEach(card=>{
-        let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
+        let {author,image_url,details,total_view,_id,title,thumbnail_url,rating}=card
         let div=document.createElement('div')
         div.classList.add('card','card' ,'lg:card-side', 'bg-base-100','shadow-xl', 'md:pl-5' ,'mb-5')
         div.innerHTML=`
@@ -43,7 +51,7 @@ const newsCard=async(id,name)=>{
                       <p class="">${details?details.slice(0,400)+' ...':'Not available'}</p>
                       <div class="md:flex justify-between items-center md:pt-5">
                         <div class="flex items-center pt-5">
-                            <div class="w-[70px] h-[70px] "><img src="${image_url?image_url:`https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=`}" class="rounded-full w-full h-full object-cover" /></div>
+                            <div class="w-[70px] h-[70px] "><img src="${author.img?author.img:`https://media.istockphoto.com/vectors/male-profile-flat-blue-simple-icon-with-long-shadow-vector-id522855255?k=20&m=522855255&s=612x612&w=0&h=fLLvwEbgOmSzk1_jQ0MgDATEVcVOh_kqEe0rqi7aM5A=`}" class="rounded-full w-full h-full object-cover" /></div>
                             <div class="pl-4">
                                 <p class="font-semibold capitalize">${author.name?author.name:'Not Available'}</p>
                                 <p class="text-slate-500">${author.published_date?author.published_date.slice(0,10):'Not Available'}</p>
@@ -54,11 +62,12 @@ const newsCard=async(id,name)=>{
                             <span>${total_view?total_view:'Not Available'} views</span>
                         </div>
                         <div class="text-lg pt-5">
-                            <i class="fa-solid fa-star-half-stroke"></i>
+                            ${rating?
+                            `<i class="fa-solid fa-star-half-stroke"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>`:"Not Available"}
                         </div>
                        
                         <label onclick="authorDetails('${_id}')" for="my-modal-3" class="modal-button pt-5 float-right cursor-pointer"><i class="fa-solid fa-arrow-right text-xl"></i></label>
@@ -66,6 +75,7 @@ const newsCard=async(id,name)=>{
                     </div>
         `
         cardContainer.appendChild(div)
+        showSpinner(false)
     })
    
     // sorting.forEach(a=>console.log(a))

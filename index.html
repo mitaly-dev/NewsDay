@@ -60,7 +60,7 @@
     <!-- header section end -->
     <main onclick="" class="px-5 md:px-28">
         <section>
-            <div id="categorys" class="flex flex-wrap text-center gap-3 text-center justify-between text-textColor py-7 ">
+            <div id="categorys" class="flex flex-wrap gap-3 text-center justify-between text-textColor py-7 ">
                
             </div>
             <div class="p-2 md:p-4 bg-white rounded-md">
@@ -80,39 +80,13 @@
             </div>
         </section>
         <section id="newscard" class="py-10">
+          
+          <h3 id="not-found" class="text-red-600 text-center text-3xl "></h3>
+          <div id="spinner" class="text-center hidden">
+            <progress class="progress w-56 bg-violet-600 mb-20"></progress>
+          </div>
             <div id="all-News-card">
-                <!-- <div class="card card-side bg-base-100 shadow-xl pl-5">
-                    <figure class="w-2/12"><img src="https://placeimg.com/200/280/arch" alt="Movie" class="rounded-lg"></figure>
-                    <div class="card-body w-10/12">
-                      <h2 class="text-2xl font-semibold">The best fashion influencers to follow for sartorial inspiration</h2>
-                      <p>
-                        From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read on some of the best fashion blogs out there, and for even more inspiration, do head to our separate black fashion influencer round-up.
-                        <br><br>
-                        Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday, Missoma Black Friday and Gucci Black Friday...
-                      </p>
-                      <div class="flex justify-between items-center pt-10">
-                        <div class="flex items-center">
-                            <img src="https://placeimg.com/80/80/people" class="rounded-full" width="30%" />
-                            <div class="pl-4">
-                                <p class="font-semibold capitalize">author name</p>
-                                <p class="text-slate-500">22/3/23</p>
-                            </div>
-                        </div>
-                        <div  class="font-semibold text-lg">
-                            <i class="fa-regular fa-eye"></i>
-                            <span><span id="views">1.5</span> views</span>
-                        </div>
-                        <div class="text-lg">
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <button class=""><i class="fa-solid fa-arrow-right text-xl"></i></button>
-                      </div>
-                    </div>
-                  </div> -->
+             
             </div>
         </section>
     </main>
@@ -127,8 +101,7 @@
 <div class="modal">
   <div class="modal-box relative">
     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
-    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+    <div id="modal-body"></div>
   </div>
 </div>
 </body>
