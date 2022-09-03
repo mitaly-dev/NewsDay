@@ -10,7 +10,7 @@ const dataLoad=async(url)=>{
 }
 
 
-
+//all category
 const displayCategory=async(url)=>{
     let res=await dataLoad(url)
     let data=res.data.news_category
@@ -27,6 +27,7 @@ const displayCategory=async(url)=>{
 displayCategory(`https://openapi.programming-hero.com/api/news/categories`)
 
 
+//all news card
 const newsCard=async(id,name)=>{
     document.getElementById('found-category').innerText=`${name}`
     let res=await dataLoad(`https://openapi.programming-hero.com/api/news/category/0${id}`)
@@ -38,6 +39,7 @@ const newsCard=async(id,name)=>{
     sorting.sort(function(a, b){return b - a});
     console.log(sorting)
     data.forEach(card=>{
+        console.log(card)
         document.getElementById('item-found').innerText=`${data.length}`
         let {author,image_url,details,total_view,_id,title,thumbnail_url}=card
         let div=document.createElement('div')
